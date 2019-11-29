@@ -2,6 +2,8 @@ package org.dominokit.domino.ui.forms;
 
 import elemental2.dom.EventListener;
 import elemental2.dom.*;
+
+import org.dominokit.domino.ui.button.ButtonStyles;
 import org.dominokit.domino.ui.dropdown.DropDownMenu;
 import org.dominokit.domino.ui.dropdown.DropDownPosition;
 import org.dominokit.domino.ui.dropdown.DropdownAction;
@@ -92,6 +94,12 @@ public class Select<T> extends BasicFormElement<Select<T>, T> implements Focusab
         formControl
                 .appendChild(buttonElement)
                 .appendChild(labelElement);
+
+        buttonElement.style().add(ButtonStyles.DROPDOWN_TOGGLE);
+        buttonElement.setAttribute("data-toggle", "dropdown");
+        buttonElement.setAttribute("aria-haspopup", true);
+        buttonElement.setAttribute("aria-expanded", true);
+        buttonElement.setAttribute("type", "button");
         formLine.appendChild(formControl);
         container.appendChild(leftAddonContainer);
         container.appendChild(formLine.asElement());
